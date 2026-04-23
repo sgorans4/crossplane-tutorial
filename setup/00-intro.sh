@@ -72,6 +72,9 @@ gum spin --spinner dot \
 kubectl wait --for=condition=healthy provider.pkg.crossplane.io \
     --all --timeout=1800s
 
+kubectl wait --for=condition=healthy configuration.pkg.crossplane.io \
+  --all --timeout=1800s
+
 echo "## Which Hyperscaler do you want to use?" | gum format
 
 HYPERSCALER=$(gum choose "google" "aws" "azure")
